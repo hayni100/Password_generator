@@ -1,6 +1,7 @@
 # Password_generator
 
 ## Link to deployed site 
+https://hayni100.github.io/Password_generator/
 
 ## Description
 
