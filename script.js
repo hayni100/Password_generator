@@ -3,7 +3,7 @@
 var generateBtn = document.querySelector("#generate");
 /////
 
-
+///Password Options///
 var lowerCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 var upperCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var specialCharacters = ['@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.',];
@@ -15,12 +15,12 @@ var pswrdLength = parseInt([pswrdLength >= 8, pswrdLength <= 128]);
 
 function passwordOptions() {
   /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
-  // 1. prompt for password criteria
-
+  // 1. prompt for password criteria  
 
   // 2. Select password criteria 
+
   //2.1 Ask for password length
-  //- Select password length from 8 to 128 characters ?
+  //- Select password length from 8 to 128 characters 
   var pswrdLength = parseInt(prompt("LENGTH OF PASSWORD = Enter number between 8 and 128"));
   //2.1.a USER PICK = length between 8 and 128
 console.log(pswrdLength);
@@ -28,7 +28,7 @@ console.log(pswrdLength);
   //2.1.b Validate User Input
   if (pswrdLength >= 8 && pswrdLength <= 128) {
 
-    var pswrdLength = window.confirm("You chose " + pswrdLength + " characters");
+   window.confirm("You chose " + pswrdLength + " characters");
 console.log (pswrdLength);
 
   }
@@ -61,6 +61,8 @@ return null;
 
 
 //Password Generation//
+//1. create properties for user choice selection
+console.log(pswrdLength)
 var userChoice = {
   length: pswrdLength,
   includeSpecialCharacters: includeSpecialCharacters,
@@ -69,22 +71,23 @@ var userChoice = {
   includeNumbers: includeNumbers,
 
 };
+console.log(userChoice)
 return userChoice;
 }
 
 
+function randomNumber(arr) {
 
-
-function randomNumber (arr) {
-  console.log("test1")
   var randomIndex = Math.floor(Math.random() * arr.length);
   var randomElement = arr[randomIndex];
   return randomElement;
+  
 }
 
 function generatePassword() {
   console.log("test")
 var options = passwordOptions();
+console.log(options)
 var finalResult = [];
 var combinedOptions = [];
 var storeOptions = [];
@@ -115,6 +118,7 @@ for (var i=0 ; i<options.length; i++) {
   var combinedChoices = randomNumber(combinedOptions);
   finalResult.push(combinedChoices);
 }
+console.log(finalResult);
 
 
 for (var i=0 ; i<storeOptions.length; i++) {
@@ -136,16 +140,3 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-
-
-
-
-
-  
-
-
-// 3. If all promts are answered 
-      //3.1 - Password gets generated (displayed in altert or written to the page)    }
-
-
-// end of generate password function
