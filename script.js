@@ -61,7 +61,7 @@ return null;
 
 
 //Password Generation//
-//1. create properties for user choice selection
+//create properties for user choice selection//
 console.log(pswrdLength)
 var userChoice = {
   length: pswrdLength,
@@ -75,7 +75,7 @@ console.log(userChoice)
 return userChoice;
 }
 
-
+// create function for randomizing user choice //
 function randomNumber(arr) {
 
   var randomIndex = Math.floor(Math.random() * arr.length);
@@ -83,7 +83,8 @@ function randomNumber(arr) {
   return randomElement;
   
 }
-
+// create function to store state for user choice //
+// - create arrays //
 function generatePassword() {
   console.log("test")
 var options = passwordOptions();
@@ -93,7 +94,7 @@ var combinedOptions = [];
 var storeOptions = [];
 if (!options) return null;
 
-
+// if statements for user choice and characters being included in arrays//
 if (options.includeSpecialCharacters) {
   combinedOptions = combinedOptions.concat(specialCharacters);
   storeOptions.push(randomNumber(specialCharacters));
@@ -114,13 +115,14 @@ if (options.includeNumbers) {
   storeOptions.push(randomNumber(numbers));
 }
 
+// looping through if statements to generate corresponding characters //
 for (var i=0 ; i<options.length; i++) {
   var combinedChoices = randomNumber(combinedOptions);
   finalResult.push(combinedChoices);
 }
 console.log(finalResult);
 
-
+// amount of looping through corresponding to password length chosen by user//
 for (var i=0 ; i<storeOptions.length; i++) {
   console.log(storeOptions);
   finalResult[i] = storeOptions[i];
@@ -129,13 +131,14 @@ for (var i=0 ; i<storeOptions.length; i++) {
 return finalResult.join("")
 }
 
+//starter code//
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
 
-// Add event listener to generate button
+// Add event listener to generate button- starter code//
 generateBtn.addEventListener("click", writePassword);
 
 
