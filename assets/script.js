@@ -61,21 +61,20 @@ return null;
 
 
 //Password Generation//
-//create properties for user choice selection//
-console.log(pswrdLength)
+
+//configuration of user choices//
+
 var userChoice = {
   length: pswrdLength,
   includeSpecialCharacters: includeSpecialCharacters,
   includeLowerCase: includeLowerCase,
   includeUpperCase: includeUpperCase,
   includeNumbers: includeNumbers,
-
 };
-console.log(userChoice)
 return userChoice;
 }
 
-// create function for randomizing user choice //
+// create function for randomizing user choice and setting array length//
 function randomNumber(arr) {
 
   var randomIndex = Math.floor(Math.random() * arr.length);
@@ -86,15 +85,14 @@ function randomNumber(arr) {
 // create function to store state for user choice //
 // - create arrays //
 function generatePassword() {
-  console.log("test")
+  
 var options = passwordOptions();
-console.log(options)
 var finalResult = [];
 var combinedOptions = [];
 var storeOptions = [];
 if (!options) return null;
 
-// if statements for user choice and characters being included in arrays//
+// Get random character according to user choice configuration//
 if (options.includeSpecialCharacters) {
   combinedOptions = combinedOptions.concat(specialCharacters);
   storeOptions.push(randomNumber(specialCharacters));
@@ -114,15 +112,14 @@ if (options.includeNumbers) {
   combinedOptions = combinedOptions.concat(numbers);
   storeOptions.push(randomNumber(numbers));
 }
-
-// looping through if statements to generate corresponding characters //
+// Go through user choice configuration and combination of character options//
 for (var i=0 ; i<options.length; i++) {
   var combinedChoices = randomNumber(combinedOptions);
   finalResult.push(combinedChoices);
 }
 console.log(finalResult);
 
-// amount of looping through corresponding to password length chosen by user//
+//Go through chosen character options to generate password combination with selected password length//
 for (var i=0 ; i<storeOptions.length; i++) {
   console.log(storeOptions);
   finalResult[i] = storeOptions[i];
